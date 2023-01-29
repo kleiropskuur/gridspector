@@ -8,6 +8,15 @@
 </head>
 <body>
     <div>Teachable Machine Image Model - p5.js and ml5.js</div>
+
+    <div class="video-container">
+      <canvas id="videoCanvas" width="100vw" height="60vh"></canvas>
+    </div>
+    
+    <div class="result-container">
+      <span class="result"></span>
+    </div>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script>
     <script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script>
@@ -19,6 +28,7 @@
       
       // Video
       let video;
+      let flippedVideo;
       // To store the classification
       let label = "";
     
@@ -28,14 +38,17 @@
       }
     
       function setup() {
-        createCanvas(320, 260);
+        let canvas = createCanvas(100, 60);
+        canvas.parent('videoCanvas');
         // Create the video
         video = createCapture({
-            video: {
-                facingMode: { exact: "environment" }
+          video: {
+            facingMode: {
+              exact: "environment"
             }
+          }
         });
-        video.size(320, 240);
+        video.size(100, 60);
         video.hide();
     
         // Start classifying
@@ -45,13 +58,7 @@
       function draw() {
         background(0);
         // Draw the video
-        image(video, 0, 0);
-    
-        // Draw the label
-        fill(255);
-        textSize(16);
-        textAlign(CENTER);
-        text(label, width / 2, height - 4);
+        image(video, 0, 0, width, height);
       }
     
       // Get a prediction for the current video frame
@@ -69,9 +76,10 @@
         // The results are in an array ordered by confidence.
         // console.log(results[0]);
         label = results[0].label;
+        document.querySelector(".result").innerText = label;
         // Classifiy again!
         classifyVideo();
       }
     </script>
-</body>
+    </body>
 </html>
