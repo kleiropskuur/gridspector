@@ -22,6 +22,8 @@
       let flippedVideo;
       // To store the classification
       let label = "";
+      // Select the span to display the result
+      let resultSpan = document.querySelector('.result');
     
       // Load the model first
       function preload() {
@@ -29,17 +31,17 @@
       }
     
       function setup() {
-        createCanvas(window.innerWidth, window.innerHeight * 0.75);
+        var canvas = createCanvas(windowWidth, windowHeight);
+        canvas.style('display', 'block');
         // Create the video
         video = createCapture({
             video: {
                 facingMode: {
                     exact: "environment"
                 }
-            },
-            audio: false
+            }
         });
-        video.size(window.innerWidth, window.innerHeight * 0.75);
+        video.size(width, height);
         video.hide();
     
         // Start classifying
@@ -49,7 +51,13 @@
       function draw() {
         background(0);
         // Draw the video
-        image(video, 0, 0);
+        image(video, 0, 0, width, height);
+    
+        // Draw the label
+        fill(255);
+        textSize(16);
+        textAlign(CENTER);
+        text(label, width / 2, height - 4);
       }
     
       // Get a prediction for the current video frame
@@ -65,14 +73,12 @@
           return;
         }
         // The results are in an array ordered by confidence.
-        // console.log(results[0]);
         label = results[0].label;
-        let result = select('.result');
-        result.html(label);
+        // Display the result on the span
+        resultSpan.innerHTML = label;
         // Classifiy again!
         classifyVideo();
       }
     </script>
-    <span class="result"></span>
 </body>
 </html>
