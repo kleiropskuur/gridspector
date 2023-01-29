@@ -8,6 +8,7 @@
 </head>
 <body>
     <div>Teachable Machine Image Model - p5.js and ml5.js</div>
+    <span class="result"></span>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script>
     <script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script>
@@ -16,14 +17,11 @@
       let classifier;
       // Model URL
       let imageModelURL = 'https://teachablemachine.withgoogle.com/models/QAzSK7hal/';
-      
+    
       // Video
       let video;
-      let flippedVideo;
       // To store the classification
       let label = "";
-      // Select the span to display the result
-      let resultSpan = document.querySelector('.result');
     
       // Load the model first
       function preload() {
@@ -31,20 +29,15 @@
       }
     
       function setup() {
-        var canvas = createCanvas(windowWidth, windowHeight);
+        let canvas = createCanvas(windowWidth, windowHeight);
         canvas.style('display', 'block');
         // Create the video
-        video = createCapture({
-            video: {
-                facingMode: {
-                    exact: "environment"
-                }
-            }
-        });
-        video.size(width, height);
+        video = createCapture(VIDEO, videoReady);
+        video.size(windowWidth, windowHeight);
         video.hide();
+      }
     
-        // Start classifying
+      function videoReady() {
         classifyVideo();
       }
     
@@ -52,12 +45,6 @@
         background(0);
         // Draw the video
         image(video, 0, 0, width, height);
-    
-        // Draw the label
-        fill(255);
-        textSize(16);
-        textAlign(CENTER);
-        text(label, width / 2, height - 4);
       }
     
       // Get a prediction for the current video frame
@@ -73,12 +60,14 @@
           return;
         }
         // The results are in an array ordered by confidence.
+        // console.log(results[0]);
         label = results[0].label;
-        // Display the result on the span
-        resultSpan.innerHTML = label;
+        var result = select('.result');
+        result.html(label);
         // Classifiy again!
         classifyVideo();
       }
     </script>
+    
 </body>
 </html>
