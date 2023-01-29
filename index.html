@@ -11,9 +11,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script>
     <script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script>
-    
-    <span class="result"></span>
-    
     <script type="text/javascript">
       // Classifier Variable
       let classifier;
@@ -33,8 +30,14 @@
       function setup() {
         createCanvas(window.innerWidth, window.innerHeight * 0.75);
         // Create the video
-        video = createCapture(VIDEO, { facingMode: { exact: 'environment' } });
-        video.size(320, 240);
+        video = createCapture({
+          video: {
+            facingMode: {
+              exact: "environment"
+            }
+          }
+        });
+        video.size(window.innerWidth, window.innerHeight * 0.75);
         video.hide();
     
         // Start classifying
@@ -44,7 +47,7 @@
       function draw() {
         background(0);
         // Draw the video
-        image(video, 0, 0, width, height);
+        image(video, 0, 0, window.innerWidth, window.innerHeight * 0.75);
     
         // Draw the label
         fill(255);
@@ -68,10 +71,9 @@
         // The results are in an array ordered by confidence.
         // console.log(results[0]);
         label = results[0].label;
-        document.querySelector('.result').innerHTML = label;
         // Classifiy again!
         classifyVideo();
       }
     </script>
- </body>
+     </body>
 </html>
