@@ -30,19 +30,15 @@
   function setup() {
     createCanvas(360, 820);
     // Create the video
-    video = createCapture(VIDEO);
-    video.size(360, 800);
-    video.hide();
-
-    flippedVideo = ml5.flipImage(video);
-    // Start classifying
-    classifyVideo();
+    capture = createCapture(VIDEO);
+    capture.size(360, 800);
+    capture.hide();
   }
 
   function draw() {
     background(0);
     // Draw the video
-    image(flippedVideo, 0, 0);
+    image(capture, 0, 0);
 
     // Draw the label
     fill(255);
@@ -53,9 +49,9 @@
 
   // Get a prediction for the current video frame
   function classifyVideo() {
-    flippedVideo = ml5.flipImage(video)
-    classifier.classify(flippedVideo, gotResult);
-    flippedVideo.remove();
+    capture = ml5.flipImage(video)
+    classifier.classify(capture, gotResult);
+    capture.remove();
 
   }
 
