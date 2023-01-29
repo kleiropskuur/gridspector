@@ -9,6 +9,14 @@ body{
     font-style: normal;
 }
 
+h2{
+    font-family: bai-jamjuree, sans-serif;
+    font-weight: 600;
+    font-style: normal;
+
+    margin: 20px;
+}
+
 .navbar{
     position: fixed;
     bottom: 0;
@@ -22,15 +30,25 @@ body{
     width: 100%;
 
     display: flex;
+    overflow-x: scroll;
+    -ms-overflow-style: none;
 
 }
+.recent_scroll::-webkit-scrollbar{
+    display: none;
+}
 .recent{
-    margin: 25px;
+    margin-left: 20px;
 
-    width: 150px;
+    min-width: 150px;
     height: 150px;
     background-color: gray;
 
+    border-radius: 20px;
+
+}
+.recent_scroll .recent:last-child{
+    margin-right: 20px;
 }
 
 .projectcontainer{
