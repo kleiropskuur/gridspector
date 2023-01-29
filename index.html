@@ -16,7 +16,7 @@
       let classifier;
       // Model URL
       let imageModelURL = 'https://teachablemachine.withgoogle.com/models/QAzSK7hal/';
-    
+      
       // Video
       let video;
       // To store the classification
@@ -28,22 +28,30 @@
       }
     
       function setup() {
-        let canvas = createCanvas(windowWidth, windowHeight*0.60);
-        canvas.style('display', 'block');
+        createCanvas(window.innerWidth, window.innerHeight);
         // Create the video
-        video = createCapture(VIDEO, videoReady);
-        video.size(windowWidth, windowHeight*0.60);
-        video.hide();
+        createCapture({ video: { facingMode: { exact: "environment" } } }, gotStream);
+    
+        // Start classifying
+        classifyVideo();
       }
     
-      function videoReady() {
-        classifyVideo();
+      function gotStream(stream) {
+        video = createCapture(stream);
+        video.size(window.innerWidth, window.innerHeight);
+        video.hide();
       }
     
       function draw() {
         background(0);
         // Draw the video
-        image(video, 0, 0, width, height);
+        image(video, 0, 0, window.innerWidth, window.innerHeight);
+    
+        // Draw the label
+        fill(255);
+        textSize(16);
+        textAlign(CENTER);
+        text(label, width / 2, height - 4);
       }
     
       // Get a prediction for the current video frame
@@ -61,13 +69,10 @@
         // The results are in an array ordered by confidence.
         // console.log(results[0]);
         label = results[0].label;
-        var result = select('.result');
-        result.html(label);
         // Classifiy again!
         classifyVideo();
       }
     </script>
-    <span class="result"></span>
-
+    <span class="result">Classification result will appear here</span>
 </body>
 </html>
