@@ -28,11 +28,11 @@
       }
     
       function setup() {
-        let canvas = createCanvas(windowWidth, windowHeight);
+        let canvas = createCanvas(windowWidth, windowHeight*0.60);
         canvas.style('display', 'block');
         // Create the video
         video = createCapture(VIDEO, videoReady);
-        video.size(windowWidth, windowHeight);
+        video.size(windowWidth, windowHeight*0.60);
         video.hide();
       }
     
