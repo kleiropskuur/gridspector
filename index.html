@@ -31,13 +31,13 @@
         createCanvas(window.innerWidth, window.innerHeight * 0.75);
         // Create the video
         video = createCapture({
-            video: {
-                facingMode: {
-                    exact: "environment"
-                }
+          video: {
+            facingMode: {
+              exact: "environment"
             }
+          }
         });
-        video.size(width, height);
+        video.size(window.innerWidth, window.innerHeight * 0.75);
         video.hide();
     
         // Start classifying
@@ -47,7 +47,7 @@
       function draw() {
         background(0);
         // Draw the video
-        image(video, 0, 0, width, height);
+        image(video, 0, 0, window.innerWidth, window.innerHeight * 0.75);
     
         // Draw the label
         fill(255);
@@ -75,5 +75,5 @@
         classifyVideo();
       }
     </script>
- </body>
+     </body>
 </html>
