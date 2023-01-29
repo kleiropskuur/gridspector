@@ -21,37 +21,38 @@
       let video;
       // To store the classification
       let label = "";
-    
+      //create a div where the label will be placed
+      let labelContainer;
+      
       // Load the model first
       function preload() {
         classifier = ml5.imageClassifier(imageModelURL + 'model.json');
       }
     
       function setup() {
-        var cnv = createCanvas(windowWidth, windowHeight*0.75);
-        cnv.style("display", "block");
+        //create the canvas
+        let canvas = createCanvas(0, 0);
+        canvas.style('display', 'block');
         // Create the video
-        video = createCapture({
-            video: { facingMode: { exact: "environment" } },
             audio: false
-        });
-        video.size(width, height);
+        video = createCapture(VIDEO, {facingMode: {exact: "environment"}});
+        video.size(100, 75);
         video.hide();
-
+    
         // Start classifying
         classifyVideo();
+        
+        //create the label container
+        labelContainer = createDiv('');
+        labelContainer.style('text-align', 'center');
+        labelContainer.style('font-size', '16px');
       }
     
       function draw() {
         background(0);
         // Draw the video
-        image(video, 0, 0, width, height);
-    
-        // Draw the label
-        fill(255);
-        textSize(16);
-        textAlign(CENTER);
-        text(label, width / 2, height - 4);
+        image(video, 0, 0);
+
       }
     
       // Get a prediction for the current video frame
@@ -67,8 +68,8 @@
           return;
         }
         // The results are in an array ordered by confidence.
-        // console.log(results[0]);
         label = results[0].label;
+        labelContainer.html(label);
         // Classifiy again!
         classifyVideo();
       }
