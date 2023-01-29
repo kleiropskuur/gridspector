@@ -19,7 +19,6 @@
       
       // Video
       let video;
-      let flippedVideo;
       // To store the classification
       let label = "";
     
@@ -32,15 +31,13 @@
         createCanvas(320, 260);
         // Create the video
         video = createCapture({
-          audio: false,
-          video: {
-            facingMode: { exact: "environment" }
-          }
+            video: {
+                facingMode: { exact: "environment" }
+            }
         });
         video.size(320, 240);
         video.hide();
     
-        flippedVideo = ml5.flipImage(video);
         // Start classifying
         classifyVideo();
       }
@@ -48,7 +45,7 @@
       function draw() {
         background(0);
         // Draw the video
-        image(flippedVideo, 0, 0);
+        image(video, 0, 0);
     
         // Draw the label
         fill(255);
@@ -59,10 +56,7 @@
     
       // Get a prediction for the current video frame
       function classifyVideo() {
-        flippedVideo = ml5.flipImage(video)
-        classifier.classify(flippedVideo, gotResult);
-        flippedVideo.remove();
-    
+        classifier.classify(video, gotResult);
       }
     
       // When we get a result
@@ -79,5 +73,5 @@
         classifyVideo();
       }
     </script>
-    </body>
+</body>
 </html>
