@@ -31,7 +31,12 @@
       function setup() {
         createCanvas(320, 260);
         // Create the video
-        video = createCapture({ video: { facingMode: { exact: "environment" } } });
+        video = createCapture({
+          audio: false,
+          video: {
+            facingMode: { exact: "environment" }
+          }
+        });
         video.size(320, 240);
         video.hide();
     
@@ -74,5 +79,5 @@
         classifyVideo();
       }
     </script>
-</body>
+    </body>
 </html>
