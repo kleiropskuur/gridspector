@@ -28,10 +28,17 @@
       }
     
       function setup() {
-        createCanvas(320, 260);
+        var canvas = createCanvas(windowWidth, 0.75*windowHeight);
+        canvas.style('display', 'block');
         // Create the video
-        video = createCapture({ video: { facingMode: { exact: "environment" } } });
-        video.size(320, 240);
+        video = createCapture({
+          video: {
+            facingMode: {
+              exact: "environment"
+            }
+          }
+        });
+        video.size(windowWidth, 0.75*windowHeight);
         video.hide();
     
         flippedVideo = ml5.flipImage(video);
@@ -42,7 +49,7 @@
       function draw() {
         background(0);
         // Draw the video
-        image(flippedVideo, 0, 0);
+        image(flippedVideo, 0, 0, windowWidth, 0.75*windowHeight);
     
         // Draw the label
         fill(255);
