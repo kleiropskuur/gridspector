@@ -40,6 +40,10 @@
         video.size(window.innerWidth, window.innerHeight * 0.75);
         video.hide();
     
+        // Create the span element to display the result
+        let resultSpan = createSpan('');
+        resultSpan.class('result');
+        resultSpan.parent('sketch-holder');
         // Start classifying
         classifyVideo();
       }
@@ -71,9 +75,11 @@
         // The results are in an array ordered by confidence.
         // console.log(results[0]);
         label = results[0].label;
+        // Update the result span with the label
+        select('.result').html(label);
         // Classifiy again!
         classifyVideo();
       }
     </script>
-     </body>
+</body>
 </html>
