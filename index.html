@@ -3,75 +3,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gridspector</title>
+    <title>Document</title>
+    <link rel="stylesheet" href="https://use.typekit.net/hrv0jpc.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div>Teachable Machine Image Model - p5.js and ml5.js</div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script>
-    <script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script>
-    <div id="result"></div>
-    <script type="text/javascript">
-      // Classifier Variable
-      let classifier;
-      // Model URL
-      let imageModelURL = 'https://teachablemachine.withgoogle.com/models/QAzSK7hal/';
-      
-      // Video
-      let video;
-      // To store the classification
-      let label = "";
-    
-      // Load the model first
-      function preload() {
-        classifier = ml5.imageClassifier(imageModelURL + 'model.json');
-      }
-    
-      function setup() {
-        createCanvas(window.innerWidth, window.innerHeight * 0.75);
-        // Create the video
-        video = createCapture({
-          video: {
-            facingMode: {
-              exact: "environment"
-            }
-          }
-        });
-        video.size(window.innerWidth, window.innerHeight * 0.75);
-        video.hide();
-    
-        // Start classifying
-        classifyVideo();
-      }
-    
-      function draw() {
-        background(0);
-        // Draw the video
-        image(video, 0, 0, window.innerWidth, window.innerHeight * 0.75);
-      }
-    
-      // Get a prediction for the current video frame
-      function classifyVideo() {
-        classifier.classify(video, gotResult);
-      }
-    
-      // When we get a result
-      function gotResult(error, results) {
-        // If there is an error
-        if (error) {
-          console.error(error);
-          return;
-        }
-        // The results are in an array ordered by confidence.
-        // console.log(results[0]);
-        label = results[0].label;
-        // Update the result span
-        document.getElementById("result").innerHTML = label;
-        // Classifiy again!
-        classifyVideo();
-      }
-    </script>
-    <span class="result"></span>
+    <a href="scan.html">explore</a>
 </body>
 </html>
