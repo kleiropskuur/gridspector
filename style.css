@@ -99,26 +99,26 @@ ion-icon{
     font-size: 1.2em;
 }
 
-#save-button {
+.save-class {
     position: absolute;
-    top: 75vh;
-    background-color: #4CAF50; /* Green */
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
+    top: 80vh;
+    left: 20px;
+    
+    width: calc(100vw - 40px);
+    
+
+    color: #0F65E5;
+    padding: 10px;
+    border: 1px solid #0F65E5;
+    border-radius: 10px;
     cursor: pointer;
     font-size: 16px;
-  }
-  
-  #save-button:hover {
-    background-color: #3e8e41;
+    background: none;
   }
   
   .saved-class{
-     background-color: gray; /* Gray */
-     color: black;
-     cursor: not-allowed;
+    background: #0F65E5;
+    color: white;
   }
   
  
