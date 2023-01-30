@@ -88,7 +88,7 @@ ion-icon{
     border-radius: 20px;
 }
 .projectcontainer .project:last-child{
-    margin-bottom: 50px;
+    margin-bottom: 100px;
 }
 
 
@@ -96,5 +96,5 @@ ion-icon{
     position: fixed;
     top: 80vh;
 
-    font-size: 3em;
+    font-size: 2em;
 }
