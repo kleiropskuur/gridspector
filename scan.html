@@ -8,11 +8,42 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="navbar">
+        <ul class="navlist">
+            <li class="nav">
+                <a href="index.html">
+                    <span class="icon">
+                        <ion-icon name="home-sharp"></ion-icon>
+                    </span>
+                    <span class="list">Home</span>
+                </a>
+            </li>
+            <li class="nav">
+                <a href="scan.html" class="active">
+                    <span class="icon">
+                        <ion-icon name="add-circle-sharp"></ion-icon>
+                    </span>
+                    <span class="list">Check</span>
+                </a>
+            </li>
+            <li class="nav">
+                <a href="profile.html">
+                    <span class="icon">
+                        <ion-icon name="person-sharp"></ion-icon>
+                    </span>
+                    <span class="list">Profile</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script>
     <script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script>
     <div id="result"></div>
-    <script type="text/javascript" class="scan">
+    <script type="text/javascript">
       // Classifier Variable
       let classifier;
       // Model URL
