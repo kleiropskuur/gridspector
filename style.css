@@ -58,7 +58,7 @@ ion-icon{
     overflow-x: scroll;
     -ms-overflow-style: none;
 
-    margin-bottom: 80px;
+    margin-bottom: 40px;
 
 }
 .recent_scroll::-webkit-scrollbar{
