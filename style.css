@@ -164,3 +164,53 @@ ion-icon{
  .bad{
     background-color: #DB3030;
  }
+
+ .profile{
+    display: flex;
+    align-items: center;
+    margin-bottom: 80px;
+ }
+ .pic{
+    width: 75px;
+    height: 75px;
+    background-image: url(images/Snapchat-1370690314.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    border-radius: 100px;
+    margin: 20px;
+ }
+
+.options{
+    display: flex;
+    align-items: center;
+
+    height: 75px;
+    border-bottom: 1px solid gray;
+}
+
+.icons ion-icon{
+    margin: 20px;
+}
+
+.options:first-of-type{
+    border-top: 0.5px solid gray;
+}
+
+.logout{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #DB3030;
+    padding: 10px;
+
+    background-color: lightgray;
+    margin: 40px 10px;
+
+    width: calc(100vw - 40px);
+    border-radius: 10px;
+}
+.logout p{
+    margin-right: 10px;
+}
