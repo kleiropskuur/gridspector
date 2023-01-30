@@ -168,7 +168,7 @@ ion-icon{
  .profile{
     display: flex;
     align-items: center;
-    margin-bottom: 80px;
+    margin-bottom: 20px;
  }
  .pic{
     width: 75px;
@@ -186,7 +186,7 @@ ion-icon{
     align-items: center;
 
     height: 75px;
-    border-bottom: 1px solid gray;
+    border-bottom: 0.5px solid gray;
 }
 
 .icons ion-icon{
@@ -206,9 +206,9 @@ ion-icon{
     padding: 10px;
 
     background-color: lightgray;
-    margin: 40px 10px;
+    margin: 40px 20px;
 
-    width: calc(100vw - 40px);
+    width: calc(100vw - 60px);
     border-radius: 10px;
 }
 .logout p{
