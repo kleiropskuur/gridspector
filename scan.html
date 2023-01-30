@@ -77,9 +77,14 @@
       }
     
       function draw() {
-        background(0);
+        if (label === "good grid use") {
+            background("green");
+        } else if (label === "bad/no grid use") {
+            background("blue");
+        }
         // Draw the video
         image(video, 0, 0, window.innerWidth, window.innerHeight * 0.7);
+
       }
     
       // Get a prediction for the current video frame
@@ -100,6 +105,11 @@
         // Update the result span
         document.getElementById("result").innerHTML = "Your design has a " + label;
         // Classifiy again!
+       // if (label === "good grid use") {
+        //    document.body.style.background = "#0E9F2E";
+        //} else if (label === "bad/no grid use") {
+         //   document.body.style.background = "#DB3030";
+       //}
         classifyVideo();
       }
     </script>

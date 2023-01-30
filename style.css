@@ -58,6 +58,8 @@ ion-icon{
     overflow-x: scroll;
     -ms-overflow-style: none;
 
+    margin-bottom: 80px;
+
 }
 .recent_scroll::-webkit-scrollbar{
     display: none;
@@ -115,6 +117,13 @@ ion-icon{
 
     border-radius: 10px;;
     margin: 20px;
+
+}
+
+.thumbnail img{
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
 }
 .info{
     margin-top: 20px;
@@ -149,4 +158,9 @@ ion-icon{
     color: white;
   }
   
- 
+ .good{
+    background-color: #0E9F2E;
+ }
+ .bad{
+    background-color: #DB3030;
+ }
