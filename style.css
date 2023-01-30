@@ -68,9 +68,25 @@ ion-icon{
     min-width: 150px;
     height: 150px;
     background-color: gray;
+    background-size: contain;
 
     border-radius: 20px;
 
+}
+.recent_scroll .recent:nth-child(1){
+    background: url(images/5bc854ee7fa44cc6ca000a7d.width-1440_8dGYtrS5iPr5sUlt.jpg);
+}
+.recent_scroll .recent:nth-child(2){
+    background: url(images/5c851f112c018ea7073a3347081dfa1c.jpg);
+}
+.recent_scroll .recent:nth-child(3){
+    background: url(images/813ce3ad81ab40cdcd15bee1f0ad8d60.jpg);
+}
+.recent_scroll .recent:nth-child(4){
+    background: url(images/ae4664c8274bff5e75404090ac169bbd.jpg);
+}
+.recent_scroll .recent:nth-child(5){
+    background: url(images/bad-ad1.jpg);
 }
 .recent_scroll .recent:last-child{
     margin-right: 20px;
@@ -82,15 +98,27 @@ ion-icon{
 .project{
     margin-bottom: 20px;
     width: 100%;
-    height: 100px;
+    height: 140px;
     background-color: lightblue;
 
     border-radius: 20px;
+    display: flex;
 }
 .projectcontainer .project:last-child{
     margin-bottom: 100px;
 }
+.thumbnail{
+    width: 100px;
+    height: 100px;
 
+    background-color: pink;;
+
+    border-radius: 10px;;
+    margin: 20px;
+}
+.info{
+    margin-top: 20px;
+}
 
 #result{
     position: absolute;
