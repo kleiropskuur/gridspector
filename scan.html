@@ -60,7 +60,7 @@
       }
     
       function setup() {
-        createCanvas(window.innerWidth, window.innerHeight * 0.75);
+        createCanvas(window.innerWidth, window.innerHeight * 0.7);
         // Create the video
         video = createCapture({
           video: {
@@ -69,7 +69,7 @@
             }
           }
         });
-        video.size(window.innerWidth, window.innerHeight * 0.75);
+        video.size(window.innerWidth, window.innerHeight * 0.7);
         video.hide();
     
         // Start classifying
@@ -79,7 +79,7 @@
       function draw() {
         background(0);
         // Draw the video
-        image(video, 0, 0, window.innerWidth, window.innerHeight * 0.75);
+        image(video, 0, 0, window.innerWidth, window.innerHeight * 0.7);
       }
     
       // Get a prediction for the current video frame
@@ -103,9 +103,8 @@
         classifyVideo();
       }
     </script>
-    <div class="container">
-
         <div id="result"></div>
-    </div>
+        <button id="save-button" class="save-class" onclick="saveButtonClick()">Save</button>
+        <script src="script.js"></script>
 </body>
 </html>
